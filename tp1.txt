@@ -1,0 +1,25 @@
+*** TP 1 ***
+
+Créer un micro-service flask/python ou express/nodejs permettant à un client http de poster:
+une citation et son auteur. Exemple de citation: 
+  text: La résignation est un suicide quotidien. 
+  author: Honoré de Balzac
+
+L'application web enregistrera les données reçues dans une base mysql/mariadb.
+L'application devra être conteneurisée et associée à un conteneur mariadb avec lequel elle communiquera.
+Créer un fichier docker-compose de l'application.
+
+Créer et appliquer un playbook ansible permettant de déployer l'application sur les machines [dev]
+Ce playbook récupèrera les sources de l'application depuis un dépôt github et devra
+exécuter le docker-compose.yml sur chacune des machines [dev].
+
+Créer un playbook permettant de faire une sauvegarde des bases de données associées aux applications
+Le fichier en sortie devra être copié sur toutes les machines [dev], par exemple dans le dossier /tmp
+et nommé, par exemple, comme suit: cible1-tp1-app-db-2021-10-22_14-00-00.bak
+
+---
+Option1:
+Créer une tâche libre Jenkins exécutant le playbook de sauvegarde de base toutes les 5 minutes
+
+Option2:
+Créer la version k8s de l'application en rédigeant les templates de ressources
